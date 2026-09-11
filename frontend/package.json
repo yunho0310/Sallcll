@@ -1,0 +1,10 @@
+{
+  "name": "frontend",
+  "version": "0.0.1",
+  "description": "수강신청 팀 프로젝트 프런트엔드 (스캐폴딩 예정)",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"TODO: 프런트엔드 프레임워크 설정 후 dev 스크립트 작성\" && exit 1",
+    "build": "echo \"TODO: 프런트엔드 프레임워크 설정 후 build 스크립트 작성\" && exit 1"
+  }
+}
