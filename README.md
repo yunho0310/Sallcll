@@ -20,6 +20,8 @@ cp .env.example .env
 npm run start:dev
 ```
 
+모든 API는 `/api` 접두사를 사용합니다 (예: `GET /api/health`). 프로젝트 구조는 [docs/PROJECT_STRUCTURE.md](./docs/PROJECT_STRUCTURE.md) 참고.
+
 ## 주요 스크립트
 
 - `npm run start:dev` : 개발 서버 실행 (watch)
