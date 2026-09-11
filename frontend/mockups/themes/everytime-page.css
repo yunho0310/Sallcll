@@ -1,0 +1,154 @@
+/* everytime_design.md — campus board, not a SaaS hero. */
+:root {
+  --bg: #ffffff;
+  --subtle: #f5f5f5;
+  --text: #222222;
+  --text-2: #8e8e8e;
+  --red: #e01f26;
+  --red-hover: #c4161c;
+  --link: #3b7ded;
+  --line: #ebebeb;
+  --font: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--subtle);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+}
+a { color: var(--link); text-decoration: none; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.note {
+  margin: 0;
+  padding: 12px 20px;
+  background: var(--text);
+  color: var(--text-2);
+  font-size: 12px;
+}
+.note strong { color: #ffffff; }
+.note a { color: #ffb3b3; }
+
+.top {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.top-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+}
+.brand {
+  color: var(--red);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.meta { font-size: 12px; color: var(--text-2); }
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 176px minmax(0, 1fr) 228px;
+  gap: 12px;
+  padding: 12px 16px 40px;
+}
+
+.panel {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.boards { padding: 8px 0 12px; }
+.boards p {
+  margin: 0;
+  padding: 8px 14px 4px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+.boards a {
+  display: block;
+  padding: 9px 14px;
+  color: var(--text);
+  font-weight: 600;
+}
+.boards a:hover { background: var(--subtle); }
+.boards a.on {
+  box-shadow: inset 3px 0 0 var(--red);
+  color: var(--red);
+}
+
+.post { padding: 20px 22px 8px; }
+.post .who {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+.post h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.post .body {
+  margin: 12px 0 0;
+  color: var(--text);
+}
+
+.comments { margin-top: 16px; border-top: 1px solid var(--line); }
+.comments a {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+}
+.comments small { color: var(--text-2); font-weight: 400; }
+
+.login { padding: 16px; }
+.login h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.login input {
+  width: 100%;
+  height: 44px;
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+}
+.login input:focus { outline: none; border-color: var(--red); }
+.login button {
+  width: 100%;
+  height: 44px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--red);
+  color: #ffffff;
+  font-weight: 700;
+}
+.login button:hover { background: var(--red-hover); }
+.login p {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+@media (max-width: 800px) {
+  .wrap { grid-template-columns: 1fr; }
+}

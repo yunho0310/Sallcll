@@ -41,6 +41,16 @@ npm run dev:be
 - `feature/{기능명}`: 기능 개발 브랜치
 - `fix/{버그명}`: 버그 수정 브랜치
 
+## 메인 시안
+
+프론트 스캐폴드 전에 보는 정적 HTML입니다. 클론한 뒤 이 파일을 브라우저로 엽니다.
+
+[`frontend/mockups/themes/index.html`](./frontend/mockups/themes/index.html)
+
+```bash
+start frontend/mockups/themes/index.html
+```
+
 ## 기여 방법
 
 [CONTRIBUTING.md](./CONTRIBUTING.md)를 참고해주세요.

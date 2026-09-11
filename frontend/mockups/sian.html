@@ -1,0 +1,670 @@
+<title>Sallcll 메인 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap">
+<style>
+/* ============ 갤러리 토큰 ============ */
+:root{
+  --ink:#141A17;
+  --ink-2:#59645E;
+  --ink-3:#8A958E;
+  --paper:#F1F4F2;
+  --surface:#FFFFFF;
+  --line:#DBE3DE;
+  --line-soft:#E8EDEA;
+  --accent:#03C75A;
+  --accent-deep:#05793A;
+  --accent-wash:#E8F7EE;
+  --sans:"IBM Plex Sans KR","Pretendard","Apple SD Gothic Neo",system-ui,sans-serif;
+  --serif:"Hahmlet","Nanum Myeongjo",serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E7EDE9; --ink-2:#9DA9A2; --ink-3:#6E7C75;
+    --paper:#0E1311; --surface:#161C19; --line:#27312C; --line-soft:#1D2521;
+    --accent:#18D06D; --accent-deep:#7FE7AE; --accent-wash:#13241B;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E7EDE9; --ink-2:#9DA9A2; --ink-3:#6E7C75;
+  --paper:#0E1311; --surface:#161C19; --line:#27312C; --line-soft:#1D2521;
+  --accent:#18D06D; --accent-deep:#7FE7AE; --accent-wash:#13241B;
+}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:0 72px;}
+.mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0;}
+
+/* ============ 머리말 ============ */
+.masthead{padding-block:56px 40px;border-bottom:1px solid var(--line);}
+.masthead h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(32px,5.6vw,54px);line-height:1.15;letter-spacing:-.02em;
+  margin:12px 0 0;text-wrap:balance;
+}
+.masthead h1 em{font-style:normal;color:var(--accent-deep);}
+.lede{max-width:60ch;color:var(--ink-2);font-size:16px;margin:16px 0 0;}
+.lede strong{color:var(--ink);font-weight:600;}
+.premise{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;
+  overflow:hidden;margin:32px 0 0;
+}
+.premise div{background:var(--surface);padding:14px 16px;}
+.premise dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;color:var(--ink-3);text-transform:uppercase;}
+.premise dd{margin:5px 0 0;font-size:14px;font-weight:500;}
+.premise dd small{display:block;font-weight:400;color:var(--ink-2);font-size:12.5px;margin-top:2px;}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.jump a{
+  font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:var(--surface);
+}
+.jump a:hover{border-color:var(--accent);color:var(--accent-deep);}
+.jump a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+/* ============ 시안 블록 ============ */
+.sian{padding-block:56px;border-bottom:1px solid var(--line);}
+.sian__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;}
+.tag{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  background:var(--ink);color:var(--paper);border-radius:4px;padding:4px 8px;
+}
+.sian h2{font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:-.01em;margin:0;}
+.thesis{flex:1 1 320px;color:var(--ink-2);font-size:15px;margin:0;min-width:260px;}
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));
+  gap:20px 28px;margin:24px 0 26px;padding-top:20px;border-top:1px solid var(--line-soft);
+}
+.facts dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);}
+.facts dd{margin:5px 0 0;font-size:13.5px;color:var(--ink);line-height:1.5;}
+
+/* 브라우저 프레임 */
+.win{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);box-shadow:0 1px 2px rgba(20,26,23,.05),0 14px 34px -20px rgba(20,26,23,.32);}
+.win__bar{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--line-soft);border-bottom:1px solid var(--line);}
+.win__dots{display:flex;gap:5px;}
+.win__dots i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;}
+.win__url{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);background:var(--surface);border-radius:5px;padding:3px 10px;}
+.win__body{overflow-x:auto;}
+.win figcaption{padding:12px 16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-2);background:var(--surface);}
+
+/* ============ 목업 공통 ============ */
+.mk{
+  --m-ink:#1B1F1D; --m-ink2:#6B7671; --m-ink3:#9AA49E;
+  --m-bg:#FFFFFF; --m-soft:#F5F7F6; --m-line:#E6EAE8; --m-line2:#D5DCD8;
+  --m-green:#03C75A; --m-green-d:#02A04A; --m-wash:#EDF9F2;
+  font-size:13px;line-height:1.45;color:var(--m-ink);background:var(--m-bg);
+  min-width:760px;
+}
+.mk *{box-sizing:border-box;}
+.mk-top{display:flex;align-items:center;gap:22px;padding:0 20px;height:52px;border-bottom:1px solid var(--m-line);background:var(--m-bg);}
+.mk-brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;letter-spacing:-.01em;}
+.mk-mark{width:16px;height:16px;border-radius:4px;background:var(--m-green);display:block;flex:none;}
+.mk-nav{display:flex;gap:18px;}
+.mk-nav span{font-size:13px;color:var(--m-ink2);padding:16px 0;}
+.mk-nav span.is-on{color:var(--m-ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--m-green);}
+.mk-topr{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.mk-chip{font-size:11.5px;color:var(--m-ink2);border:1px solid var(--m-line2);border-radius:999px;padding:3px 10px;white-space:nowrap;}
+.mk-ava{width:26px;height:26px;border-radius:50%;background:var(--m-wash);color:var(--m-green-d);font-size:11.5px;font-weight:600;display:grid;place-items:center;flex:none;}
+.mk-btn{font:inherit;font-size:12px;font-weight:600;border:0;border-radius:6px;padding:7px 13px;background:var(--m-green);color:#fff;white-space:nowrap;}
+.mk-btn.ghost{background:transparent;color:var(--m-ink2);border:1px solid var(--m-line2);font-weight:500;}
+
+/* 시간표 그리드 */
+.tt{display:grid;grid-template-columns:52px repeat(5,minmax(0,1fr));border:1px solid var(--m-line);border-radius:8px;overflow:hidden;background:var(--m-line);gap:1px;}
+.tt .hd{background:var(--m-soft);font-size:11.5px;font-weight:600;color:var(--m-ink2);display:grid;place-items:center;height:30px;}
+.tt .pd{background:var(--m-soft);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;font-family:var(--mono);font-size:10px;color:var(--m-ink3);}
+.tt .pd b{font-size:11px;font-weight:500;color:var(--m-ink2);}
+.tt .cl{background:var(--m-bg);min-height:38px;}
+.blk{border-radius:6px;margin:1px;padding:5px 7px;overflow:hidden;}
+.blk b{font-size:11.5px;font-weight:600;display:block;line-height:1.3;}
+.blk span{font-size:10px;opacity:.78;margin-top:2px;font-family:var(--mono);display:block;}
+.b-sky{background:#E3EEF8;color:#2B5678;}
+.b-sage{background:#E2F1E7;color:#2C5C3E;}
+.b-sand{background:#F8EDDD;color:#79592D;}
+.b-rose{background:#F8E7E7;color:#7A3D3D;}
+.b-lilac{background:#ECE8F6;color:#4D3F76;}
+.b-wish{background:var(--m-green);color:#fff;}
+
+/* ---- 시안 A : 작업대 ---- */
+.mk-a-body{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,1fr);}
+.mk-board{padding:18px 20px 20px;border-right:1px solid var(--m-line);}
+.mk-board-h{display:flex;align-items:center;gap:10px;margin-bottom:13px;}
+.mk-board-h h3{margin:0;font-size:14.5px;font-weight:600;letter-spacing:-.01em;}
+.mk-plan{font-size:11px;color:var(--m-ink3);border:1px solid var(--m-line2);border-radius:4px;padding:2px 7px;}
+.mk-sum{margin-left:auto;font-size:12px;color:var(--m-ink2);font-family:var(--mono);display:flex;gap:6px;align-items:baseline;}
+.mk-sum b{color:var(--m-ink);font-size:14px;font-weight:600;}
+.mk-sum em{font-style:normal;color:var(--m-green-d);}
+.mk-note{margin:10px 0 0;font-size:10.5px;color:var(--m-ink3);}
+.mk-panel{padding:18px 20px 20px;background:var(--m-soft);display:flex;flex-direction:column;gap:10px;}
+.mk-srch{display:flex;align-items:center;gap:8px;background:var(--m-bg);border:1px solid var(--m-line2);border-radius:7px;padding:8px 11px;font-size:12.5px;color:var(--m-ink3);}
+.mk-fil{display:flex;flex-wrap:wrap;gap:6px;}
+.mk-fil span{font-size:11px;border:1px solid var(--m-line2);border-radius:999px;padding:3px 9px;color:var(--m-ink2);background:var(--m-bg);}
+.mk-fil span.is-on{background:var(--m-ink);color:#fff;border-color:var(--m-ink);}
+.mk-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--m-ink3);margin:6px 0 0;}
+.mk-card{background:var(--m-bg);border:1px solid var(--m-line);border-radius:8px;padding:11px 12px;display:flex;gap:10px;align-items:flex-start;}
+.mk-card h4{margin:0;font-size:13px;font-weight:600;}
+.mk-card h4 i{font-style:normal;font-size:10px;color:var(--m-ink3);font-weight:400;margin-left:4px;}
+.mk-card p{margin:3px 0 0;font-size:11px;color:var(--m-ink2);font-family:var(--mono);}
+.mk-card .mk-btn{flex:none;margin-left:auto;}
+.mk-card.is-clash{border-color:#E9CBB9;background:#FCF6F2;}
+.mk-clash{margin:6px 0 0;font-size:11px;color:#BC4B16;font-family:inherit;}
+
+/* ---- 시안 B : 위시 페인트 ---- */
+.mk-b-hero{padding:42px 40px 26px;text-align:center;}
+.mk-b-hero .eye{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--m-green-d);}
+.mk-b-hero h1{margin:10px 0 0;font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1.22;text-wrap:balance;}
+.mk-b-hero h1 mark{background:linear-gradient(transparent 62%, #A6EFC6 62%);color:inherit;padding:0 2px;}
+.mk-b-hero .sub{margin:13px auto 0;max-width:46ch;font-size:14px;color:var(--m-ink2);}
+.mk-b-stage{padding:0 40px 36px;display:grid;grid-template-columns:minmax(0,1fr) 262px;gap:22px;align-items:start;}
+.mk-b-bar{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:12px;color:var(--m-ink2);}
+.mk-b-bar .dot{width:10px;height:10px;border-radius:3px;background:var(--m-green);flex:none;}
+.mk-b-bar b{color:var(--m-ink);font-family:var(--mono);font-weight:500;}
+.mk-b-side h3{margin:0 0 3px;font-size:13.5px;font-weight:600;}
+.mk-b-side>p{margin:0 0 11px;font-size:11.5px;color:var(--m-ink3);font-family:var(--mono);}
+.mk-rec{border:1px solid var(--m-line);border-left:3px solid var(--m-green);border-radius:7px;padding:10px 12px;margin-bottom:8px;background:var(--m-bg);}
+.mk-rec h4{margin:0;font-size:12.5px;font-weight:600;}
+.mk-rec p{margin:3px 0 0;font-size:11px;color:var(--m-ink2);font-family:var(--mono);}
+.mk-rec .mk-btn{margin-top:9px;width:100%;}
+.mk-b-more{margin:0;font-size:11.5px;color:var(--m-green-d);text-align:center;padding-top:2px;}
+
+/* ---- 시안 C : 학기 브리핑 ---- */
+.mk-c{display:grid;grid-template-columns:186px minmax(0,1fr);background:var(--m-soft);}
+.mk-side{background:var(--m-bg);border-right:1px solid var(--m-line);padding:16px 14px;display:flex;flex-direction:column;gap:16px;}
+.mk-sem{border:1px solid var(--m-line2);border-radius:7px;padding:8px 10px;}
+.mk-sem b{display:block;font-size:12.5px;font-weight:600;}
+.mk-sem span{font-size:10.5px;color:var(--m-ink3);font-family:var(--mono);}
+.mk-menu{display:flex;flex-direction:column;gap:1px;}
+.mk-menu span{font-size:12.5px;color:var(--m-ink2);padding:7px 9px;border-radius:6px;}
+.mk-menu span.is-on{background:var(--m-wash);color:var(--m-green-d);font-weight:600;}
+.mk-side footer{margin-top:auto;font-size:10.5px;color:var(--m-ink3);line-height:1.45;}
+.mk-main{padding:20px 22px 24px;display:flex;flex-direction:column;gap:16px;}
+.mk-hi h2{margin:0;font-size:19px;font-weight:600;letter-spacing:-.02em;}
+.mk-hi p{margin:4px 0 0;font-size:12.5px;color:var(--m-ink2);}
+.mk-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.mk-tile{background:var(--m-bg);border:1px solid var(--m-line);border-radius:9px;padding:12px 14px;}
+.mk-tile span{font-size:11px;color:var(--m-ink3);}
+.mk-tile b{display:block;font-size:24px;font-weight:600;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums;}
+.mk-tile b small{font-size:12px;font-weight:400;color:var(--m-ink3);}
+.mk-meter{height:4px;border-radius:2px;background:var(--m-line);margin-top:9px;overflow:hidden;}
+.mk-meter i{display:block;height:100%;background:var(--m-green);}
+.mk-cols{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(215px,1fr);gap:14px;align-items:start;}
+.mk-stack{display:flex;flex-direction:column;gap:14px;}
+.mk-pane{background:var(--m-bg);border:1px solid var(--m-line);border-radius:9px;padding:14px 15px;}
+.mk-pane header{display:flex;align-items:center;gap:8px;margin-bottom:11px;}
+.mk-pane h3{margin:0;font-size:13px;font-weight:600;}
+.mk-pane header .mk-btn{margin-left:auto;}
+.mk-fav{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+.mk-fav li{display:flex;gap:9px;align-items:baseline;font-size:12px;border-bottom:1px solid var(--m-line);padding-bottom:8px;}
+.mk-fav li:last-child{border:0;padding-bottom:0;}
+.mk-fav b{font-weight:600;}
+.mk-fav span{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--m-ink3);}
+.mk-tip{margin:0;font-size:12px;color:var(--m-ink2);border-left:2px solid var(--m-line2);padding-left:10px;line-height:1.55;}
+.mk-tip cite{display:block;font-style:normal;font-size:10.5px;color:var(--m-ink3);margin-top:5px;font-family:var(--mono);}
+
+/* ---- 시안 D : 발표용 랜딩 ---- */
+.mk-d{--d-deep:#07271A;--d-deep2:#0C3A26;--d-cream:#F4F7F3;background:var(--d-deep);color:#EAF3ED;}
+.mk-d .mk-top{background:transparent;border-bottom:1px solid rgba(255,255,255,.09);height:56px;padding:0 34px;}
+.mk-d .mk-brand{color:#fff;}
+.mk-d .mk-nav span{color:rgba(234,243,237,.62);}
+.mk-d-hero{display:grid;grid-template-columns:minmax(0,1fr) 296px;gap:34px;align-items:center;padding:46px 34px 50px;background:radial-gradient(110% 130% at 12% 0%, var(--d-deep2) 0%, var(--d-deep) 62%);}
+.mk-d-hero .eye{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#59E39A;}
+.mk-d-hero h1{margin:14px 0 0;font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.22;letter-spacing:-.02em;color:#fff;text-wrap:balance;}
+.mk-d-hero .sub{margin:14px 0 0;max-width:40ch;font-size:14px;color:rgba(234,243,237,.72);}
+.mk-d-cta{display:flex;gap:9px;margin-top:22px;}
+.mk-d-cta .mk-btn.ghost{color:#EAF3ED;border-color:rgba(255,255,255,.26);}
+.mk-shot{background:var(--d-cream);border-radius:10px;padding:12px;color:#1B1F1D;box-shadow:0 24px 46px -22px rgba(0,0,0,.7);transform:rotate(-1.2deg);}
+.mk-shot h4{margin:0 0 9px;font-size:10.5px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#6B7671;}
+.mk-d-feat{display:grid;grid-template-columns:repeat(3,1fr);background:var(--d-cream);color:#1B1F1D;}
+.mk-d-feat article{padding:26px;border-right:1px solid #DFE5E1;}
+.mk-d-feat article:last-child{border-right:0;}
+.mk-d-feat .rule{width:22px;height:2px;background:var(--m-green);display:block;}
+.mk-d-feat h3{margin:12px 0 0;font-size:15px;font-weight:600;letter-spacing:-.01em;}
+.mk-d-feat p{margin:6px 0 0;font-size:12.5px;color:#5E6A64;}
+.mk-d-strip{display:flex;flex-wrap:wrap;gap:26px;padding:14px 34px;background:#052014;font-family:var(--mono);font-size:11px;color:rgba(234,243,237,.58);}
+
+/* ============ 비교·추천 ============ */
+.compare{padding-block:56px 0;}
+.compare h2{font-family:var(--serif);font-size:26px;font-weight:700;margin:0 0 22px;letter-spacing:-.01em;}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:13.5px;}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top;}
+thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);font-weight:500;background:var(--line-soft);}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0;}
+tbody th{font-weight:600;white-space:nowrap;}
+td small{color:var(--ink-2);}
+.pick{margin-top:32px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:var(--surface);padding:22px 24px;}
+.pick.alt{border-left-color:var(--ink);}
+.pick h3{margin:0 0 10px;font-size:17px;font-weight:600;}
+.pick p{margin:0 0 14px;font-size:14px;color:var(--ink-2);max-width:66ch;}
+.pick ol{margin:0;padding-left:20px;font-size:14px;color:var(--ink-2);}
+.pick ol li{margin-bottom:8px;}
+.pick ol li:last-child{margin-bottom:0;}
+.pick strong{color:var(--ink);font-weight:600;}
+
+@media (max-width:820px){
+  .mk-b-stage,.mk-cols,.mk-d-hero{grid-template-columns:minmax(0,1fr);}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="mono">S-L 팀 · 2026-09-11 · 계획서 v0.2 기준</p>
+  <h1>Sallcll 메인페이지 <em>시안 4안</em></h1>
+  <p class="lede">계획서 4장은 “메인 히어로는 홈이 아니라 <strong>위시 그리드 + 시간표 보드</strong>”라고 못박아 뒀습니다. 그 한 문장을 네 가지 배치로 풀었습니다. 화면에 들어간 강의·교수는 팀이 쓰던 더미 데이터 그대로입니다.</p>
+
+  <dl class="premise">
+    <div><dt>제품명</dt><dd>가칭 미정<small>로고 자리는 워드마크로만</small></dd></div>
+    <div><dt>위시 매칭</dt><dd>정책 B<small>하나라도 겹치면 후보</small></dd></div>
+    <div><dt>교시 체계</dt><dd>임시 1–7교시<small>학사 교시표 확정 전</small></dd></div>
+    <div><dt>그린 범위</dt><dd>P0 기능만<small>여석·연습·졸업요건 없음</small></dd></div>
+  </dl>
+
+  <nav class="jump">
+    <a href="#a">시안 A · 작업대</a>
+    <a href="#b">시안 B · 위시 페인트</a>
+    <a href="#c">시안 C · 학기 브리핑</a>
+    <a href="#d">시안 D · 발표용 랜딩</a>
+    <a href="#compare">비교 · 추천</a>
+  </nav>
+</header>
+
+<!-- ================= 시안 A ================= -->
+<section class="sian" id="a">
+  <div class="sian__head">
+    <span class="tag">시안 A</span>
+    <h2>작업대</h2>
+    <p class="thesis">첫 화면이 곧 작업 화면. 왼쪽 보드에서 짜고 오른쪽에서 찾아 담는다. 설명 문구 없이 도구부터 내민다.</p>
+  </div>
+
+  <dl class="facts">
+    <div><dt>첫 화면 주인공</dt><dd>시간표 보드 (T1–T4)</dd></div>
+    <div><dt>잘 맞는 순간</dt><dd>수강신청 직전, 이미 뭘 들을지 아는 사람</dd></div>
+    <div><dt>리스크</dt><dd>처음 온 사람에게 “이게 뭐 하는 서비스인지” 설명이 없음</dd></div>
+    <div><dt>만드는 비용</dt><dd>보드·검색 패널 2개 — M1 더미 단계에서 바로 나옴</dd></div>
+  </dl>
+
+  <figure class="win">
+    <div class="win__bar"><div class="win__dots"><i></i><i></i><i></i></div><span class="win__url">sallcll.kr</span></div>
+    <div class="win__body">
+      <div class="mk mk-a">
+        <div class="mk-top">
+          <div class="mk-brand"><span class="mk-mark"></span>Sallcll</div>
+          <nav class="mk-nav"><span class="is-on">시간표</span><span>과목 탐색</span><span>위시 추천</span><span>관심 과목</span></nav>
+          <div class="mk-topr"><span class="mk-chip">2026-2학기 · 서경대</span><span class="mk-ava">은</span></div>
+        </div>
+
+        <div class="mk-a-body">
+          <section class="mk-board">
+            <div class="mk-board-h">
+              <h3>내 시간표</h3>
+              <span class="mk-plan">안 A</span>
+              <div class="mk-sum"><b>15</b>학점<span>·</span>5과목<span>·</span><em>충돌 없음</em></div>
+            </div>
+
+            <div class="tt">
+              <div class="hd"></div><div class="hd">월</div><div class="hd">화</div><div class="hd">수</div><div class="hd">목</div><div class="hd">금</div>
+              <div class="pd"><b>1</b>09:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>2</b>10:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>3</b>11:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>4</b>12:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>5</b>13:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>6</b>14:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>7</b>15:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+
+              <div class="blk b-sky" style="grid-column:2;grid-row:2/4"><b>자료구조및실습</b><span>이지영 · 417</span></div>
+              <div class="blk b-rose" style="grid-column:3;grid-row:3/5"><b>자바프로그래밍</b><span>유석원 · 620</span></div>
+              <div class="blk b-sage" style="grid-column:4;grid-row:2/4"><b>웹서버컴퓨팅</b><span>이지영 · 417</span></div>
+              <div class="blk b-sand" style="grid-column:5;grid-row:4/6"><b>소프트웨어실습1</b><span>유석원 · 620</span></div>
+              <div class="blk b-lilac" style="grid-column:6;grid-row:2/3"><b>캡스톤설계1</b><span>김선희</span></div>
+            </div>
+            <p class="mk-note">교시 체계는 학사 교시표 확정 전 임시 표기 · 2026-2 데이터 수동 갱신 (9/10)</p>
+          </section>
+
+          <aside class="mk-panel">
+            <div class="mk-srch">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              과목명 · 교수 · 학수번호
+            </div>
+            <div class="mk-fil">
+              <span class="is-on">전공</span><span>교양</span><span>3학점</span><span>1–2교시</span><span>공강 채우기</span>
+            </div>
+
+            <p class="mk-lbl">담을 수 있는 분반 12</p>
+
+            <div class="mk-card">
+              <div><h4>오픈소스소프트웨어</h4><p>SW3044-02 · 김선희 · 3학점 · 화 3–4</p></div>
+              <button class="mk-btn" type="button">담기</button>
+            </div>
+            <div class="mk-card">
+              <div><h4>인간과 심리<i>교양</i></h4><p>GE1102-07 · 이지영 · 2학점 · 수 5–6</p></div>
+              <button class="mk-btn" type="button">담기</button>
+            </div>
+            <div class="mk-card is-clash">
+              <div>
+                <h4>컴퓨터네트워크</h4>
+                <p>SW3011-01 · 유석원 · 3학점 · 월 1–2</p>
+                <p class="mk-clash">자료구조및실습(월 1–2)과 겹칩니다</p>
+              </div>
+              <button class="mk-btn ghost" type="button">다른 분반</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <figcaption>보드 3 : 검색 2 분할. 충돌은 담은 뒤 빨개지는 게 아니라 담기 전 카드에서 이유와 함께 알린다.</figcaption>
+  </figure>
+</section>
+
+<!-- ================= 시안 B ================= -->
+<section class="sian" id="b">
+  <div class="sian__head">
+    <span class="tag">시안 B</span>
+    <h2>위시 페인트</h2>
+    <p class="thesis">올클에 없는 기능을 첫 화면에 세운다. 빈 칸을 칠하면 그 칸에 들어가는 분반이 옆에 뜬다. 계획서 3.3의 W1–W2가 곧 히어로.</p>
+  </div>
+
+  <dl class="facts">
+    <div><dt>첫 화면 주인공</dt><dd>요일×교시 위시 그리드 (W1–W2)</dd></div>
+    <div><dt>잘 맞는 순간</dt><dd>“이 시간대에 뭐 들을 수 있지?”로 들어온 첫 방문자</dd></div>
+    <div><dt>리스크</dt><dd>내 시간표 보드가 한 클릭 뒤로 밀림. 재방문자에겐 돌아가는 길</dd></div>
+    <div><dt>만드는 비용</dt><dd>클릭 토글만 P0. 드래그 칠하기는 P1로 미룰 수 있음</dd></div>
+  </dl>
+
+  <figure class="win">
+    <div class="win__bar"><div class="win__dots"><i></i><i></i><i></i></div><span class="win__url">sallcll.kr</span></div>
+    <div class="win__body">
+      <div class="mk mk-b">
+        <div class="mk-top">
+          <div class="mk-brand"><span class="mk-mark"></span>Sallcll</div>
+          <nav class="mk-nav"><span class="is-on">위시 추천</span><span>내 시간표</span><span>과목 탐색</span></nav>
+          <div class="mk-topr"><span class="mk-chip">2026-2학기</span><button class="mk-btn ghost" type="button">로그인</button></div>
+        </div>
+
+        <div class="mk-b-hero">
+          <p class="eye">수강신청 전, 시간표부터</p>
+          <h1>비는 칸을 칠하면<br><mark>그 칸에 들어가는 강의</mark>만 남습니다</h1>
+          <p class="sub">과목을 먼저 고르고 시간을 맞추는 게 아니라, 시간을 먼저 정하고 과목을 받습니다.</p>
+        </div>
+
+        <div class="mk-b-stage">
+          <div>
+            <div class="mk-b-bar"><span class="dot"></span>칠한 칸 <b>4</b> · <b>화 4–5교시, 목 4–5교시</b></div>
+            <div class="tt">
+              <div class="hd"></div><div class="hd">월</div><div class="hd">화</div><div class="hd">수</div><div class="hd">목</div><div class="hd">금</div>
+              <div class="pd"><b>1</b>09:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>2</b>10:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>3</b>11:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>4</b>12:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>5</b>13:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>6</b>14:00</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+
+              <div class="blk b-sky" style="grid-column:2;grid-row:2/4"><b>자료구조및실습</b><span>이지영</span></div>
+              <div class="blk b-sage" style="grid-column:4;grid-row:2/4"><b>웹서버컴퓨팅</b><span>이지영</span></div>
+              <div class="blk b-wish" style="grid-column:3;grid-row:5/7"><b>위시</b><span>화 4–5</span></div>
+              <div class="blk b-wish" style="grid-column:5;grid-row:5/7"><b>위시</b><span>목 4–5</span></div>
+            </div>
+          </div>
+
+          <aside class="mk-b-side">
+            <h3>이 칸에 들어가는 강의</h3>
+            <p>정책 B · 9개</p>
+            <div class="mk-rec">
+              <h4>오픈소스소프트웨어</h4>
+              <p>화 4–5 · 3학점 · 김선희</p>
+              <button class="mk-btn" type="button">시간표에 담기</button>
+            </div>
+            <div class="mk-rec">
+              <h4>인간과 심리</h4>
+              <p>목 4–5 · 2학점 · 교양</p>
+              <button class="mk-btn" type="button">시간표에 담기</button>
+            </div>
+            <div class="mk-rec">
+              <h4>소프트웨어실습1</h4>
+              <p>목 4–6 · 3학점 · 유석원</p>
+              <button class="mk-btn" type="button">시간표에 담기</button>
+            </div>
+            <p class="mk-b-more">6개 더 보기</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <figcaption>이미 담은 과목은 파스텔, 위시 칸은 초록 채움. 초록은 “내가 칠한 것”에만 쓰고 나머지는 전부 무채색으로 둔다.</figcaption>
+  </figure>
+</section>
+
+<!-- ================= 시안 C ================= -->
+<section class="sian" id="c">
+  <div class="sian__head">
+    <span class="tag">시안 C</span>
+    <h2>학기 브리핑</h2>
+    <p class="thesis">홈은 요약, 작업은 안쪽에서. 학점·과목·남은 공강을 먼저 보여주고 시간표는 미니 보드로 건다. Phase 2의 여석·핀 알림을 얹을 자리가 이미 있는 구조.</p>
+  </div>
+
+  <dl class="facts">
+    <div><dt>첫 화면 주인공</dt><dd>학기 요약 타일 + 미니 보드</dd></div>
+    <div><dt>잘 맞는 순간</dt><dd>두 번째 방문 이후. 담아둔 게 있는 사람</dd></div>
+    <div><dt>리스크</dt><dd>담은 게 0개인 첫 방문에 화면이 텅 빔 — 빈 상태 UI(O2)를 따로 그려야 함</dd></div>
+    <div><dt>만드는 비용</dt><dd>사이드바·타일·패널 4종. 넷 중 제일 큼</dd></div>
+  </dl>
+
+  <figure class="win">
+    <div class="win__bar"><div class="win__dots"><i></i><i></i><i></i></div><span class="win__url">sallcll.kr/home</span></div>
+    <div class="win__body">
+      <div class="mk mk-c">
+        <aside class="mk-side">
+          <div class="mk-brand"><span class="mk-mark"></span>Sallcll</div>
+          <div class="mk-sem"><b>2026-2학기</b><span>서경대 · 9/10 갱신</span></div>
+          <nav class="mk-menu">
+            <span class="is-on">홈</span><span>과목 탐색</span><span>위시 추천</span><span>내 시간표</span><span>관심 과목</span><span>선배 요령</span>
+          </nav>
+          <footer>공식 수강신청을 대체하지 않습니다. 데이터는 참고용입니다.</footer>
+        </aside>
+
+        <main class="mk-main">
+          <div class="mk-hi">
+            <h2>은열님, 이번 학기 초안이 하나 있습니다</h2>
+            <p>수강신청까지 18일 · 마지막 수정 9월 10일</p>
+          </div>
+
+          <div class="mk-tiles">
+            <div class="mk-tile"><span>담은 학점</span><b>15<small> / 21</small></b><div class="mk-meter"><i style="width:71%"></i></div></div>
+            <div class="mk-tile"><span>담은 과목</span><b>5<small>과목</small></b><div class="mk-meter"><i style="width:45%"></i></div></div>
+            <div class="mk-tile"><span>비어 있는 위시</span><b>6<small>칸</small></b><div class="mk-meter"><i style="width:28%"></i></div></div>
+          </div>
+
+          <div class="mk-cols">
+            <section class="mk-pane">
+              <header><h3>내 시간표 · 안 A</h3><button class="mk-btn ghost" type="button">보드 열기</button></header>
+              <div class="tt">
+                <div class="hd"></div><div class="hd">월</div><div class="hd">화</div><div class="hd">수</div><div class="hd">목</div><div class="hd">금</div>
+                <div class="pd"><b>1</b></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+                <div class="pd"><b>2</b></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+                <div class="pd"><b>3</b></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+                <div class="pd"><b>4</b></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+                <div class="pd"><b>5</b></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+                <div class="blk b-sky" style="grid-column:2;grid-row:2/4"><b>자료구조</b></div>
+                <div class="blk b-rose" style="grid-column:3;grid-row:3/5"><b>자바프로그래밍</b></div>
+                <div class="blk b-sage" style="grid-column:4;grid-row:2/4"><b>웹서버컴퓨팅</b></div>
+                <div class="blk b-sand" style="grid-column:5;grid-row:4/6"><b>소프트웨어실습1</b></div>
+                <div class="blk b-lilac" style="grid-column:6;grid-row:2/3"><b>캡스톤1</b></div>
+              </div>
+            </section>
+
+            <div class="mk-stack">
+              <section class="mk-pane">
+                <header><h3>관심 과목</h3></header>
+                <ul class="mk-fav">
+                  <li><b>오픈소스소프트웨어</b><span>화 3–4</span></li>
+                  <li><b>컴퓨터네트워크</b><span>월 1–2</span></li>
+                  <li><b>인간과 심리</b><span>수 5–6</span></li>
+                </ul>
+              </section>
+              <section class="mk-pane">
+                <header><h3>선배 요령</h3></header>
+                <p class="mk-tip">자바프로그래밍은 실습 조가 먼저 차니까 분반보다 조를 먼저 확인하세요.<cite>자바프로그래밍 · 3학년</cite></p>
+              </section>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <figcaption>숫자 타일은 “이번 학기가 어디까지 왔나”가 이 화면의 용건일 때만 값을 한다. 담은 게 없으면 타일 자리에 위시 그리드가 올라와야 한다.</figcaption>
+  </figure>
+</section>
+
+<!-- ================= 시안 D ================= -->
+<section class="sian" id="d">
+  <div class="sian__head">
+    <span class="tag">시안 D</span>
+    <h2>발표용 랜딩</h2>
+    <p class="thesis">쓰는 화면이 아니라 보여주는 화면. 11월 데모 영상과 공모전 제출에서 첫 장으로 쓸 랜딩. 도구는 버튼 하나 뒤에 둔다.</p>
+  </div>
+
+  <dl class="facts">
+    <div><dt>첫 화면 주인공</dt><dd>한 줄 카피 + 제품 스크린샷</dd></div>
+    <div><dt>잘 맞는 순간</dt><dd>공모전 심사, 학과 홍보, 링크를 처음 받은 동기</dd></div>
+    <div><dt>리스크</dt><dd>실사용자가 도구까지 한 단계 더 감. 메인으로 쓰면 A·B의 장점이 사라짐</dd></div>
+    <div><dt>만드는 비용</dt><dd>정적 페이지 1장. 다른 시안과 같이 가져갈 수 있음</dd></div>
+  </dl>
+
+  <figure class="win">
+    <div class="win__bar"><div class="win__dots"><i></i><i></i><i></i></div><span class="win__url">sallcll.kr</span></div>
+    <div class="win__body">
+      <div class="mk mk-d">
+        <div class="mk-top">
+          <div class="mk-brand"><span class="mk-mark"></span>Sallcll</div>
+          <nav class="mk-nav"><span>소개</span><span>기능</span><span>이번 학기 데이터</span></nav>
+          <div class="mk-topr"><button class="mk-btn" type="button">시간표 짜보기</button></div>
+        </div>
+
+        <div class="mk-d-hero">
+          <div>
+            <p class="eye">서경대 · 2026-2학기</p>
+            <h1>엑셀로 시간표 맞추다<br>포기한 적 있다면</h1>
+            <p class="sub">비는 교시를 고르면 그 칸에 들어가는 강의만 추려 줍니다. 겹치는 조합은 담기 전에 걸러 냅니다.</p>
+            <div class="mk-d-cta">
+              <button class="mk-btn" type="button">내 시간표 짜보기</button>
+              <button class="mk-btn ghost" type="button">어떻게 쓰나요</button>
+            </div>
+          </div>
+          <div class="mk-shot">
+            <h4>내 시간표 · 15학점</h4>
+            <div class="tt">
+              <div class="hd"></div><div class="hd">월</div><div class="hd">화</div><div class="hd">수</div><div class="hd">목</div><div class="hd">금</div>
+              <div class="pd"><b>1</b></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>2</b></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>3</b></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="pd"><b>4</b></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div>
+              <div class="blk b-sky" style="grid-column:2;grid-row:2/4"><b>자료구조</b></div>
+              <div class="blk b-rose" style="grid-column:3;grid-row:3/5"><b>자바</b></div>
+              <div class="blk b-sage" style="grid-column:4;grid-row:2/4"><b>웹서버</b></div>
+              <div class="blk b-wish" style="grid-column:5;grid-row:4/5"><b>위시</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mk-d-feat">
+          <article>
+            <span class="rule"></span>
+            <h3>빈 교시부터 고른다</h3>
+            <p>요일×교시 그리드에서 원하는 칸을 찍으면 그 시간에 열리는 분반만 남습니다.</p>
+          </article>
+          <article>
+            <span class="rule"></span>
+            <h3>겹치면 담기 전에 막는다</h3>
+            <p>요일과 시간 구간이 겹치는 분반은 담기 버튼 자리에서 이유와 함께 표시됩니다.</p>
+          </article>
+          <article>
+            <span class="rule"></span>
+            <h3>선배가 남긴 한 줄</h3>
+            <p>강의평이 아니라 요령입니다. “이 과목은 조를 먼저 봐라” 정도의 짧은 메모.</p>
+          </article>
+        </div>
+
+        <div class="mk-d-strip">
+          <span>2026-2학기 데이터 · 수동 갱신</span>
+          <span>서경대 소프트웨어학과 S-L 팀</span>
+          <span>공식 수강신청을 대체하지 않습니다</span>
+        </div>
+      </div>
+    </div>
+    <figcaption>딥그린 바탕에 명조(Hahmlet) 헤드라인. 도구 화면과 톤을 일부러 갈라서, 랜딩을 붙여도 A·B의 무채색 작업 화면이 흐트러지지 않게 한다.</figcaption>
+  </figure>
+</section>
+
+<!-- ================= 비교 ================= -->
+<section class="compare" id="compare">
+  <h2>네 개를 같은 기준으로</h2>
+  <div class="tblwrap">
+    <table>
+      <thead>
+        <tr><th>시안</th><th>첫 화면 주인공</th><th>첫 방문자</th><th>재방문자</th><th>공모전 데모</th><th>MVP 공수</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>A · 작업대</th>
+          <td>시간표 보드</td>
+          <td><small>약함 — 설명이 없음</small></td>
+          <td>강함</td>
+          <td><small>보통 — 기능은 보이나 서사가 없음</small></td>
+          <td>낮음</td>
+        </tr>
+        <tr>
+          <th>B · 위시 페인트</th>
+          <td>위시 그리드</td>
+          <td>강함</td>
+          <td><small>보통 — 보드가 한 단계 뒤</small></td>
+          <td>강함 <small>— 차별점이 첫 장면</small></td>
+          <td>낮음</td>
+        </tr>
+        <tr>
+          <th>C · 학기 브리핑</th>
+          <td>요약 타일</td>
+          <td><small>약함 — 빈 화면 문제</small></td>
+          <td>강함</td>
+          <td><small>보통</small></td>
+          <td>높음</td>
+        </tr>
+        <tr>
+          <th>D · 발표용 랜딩</th>
+          <td>카피 + 스크린샷</td>
+          <td>강함</td>
+          <td><small>약함 — 매번 지나쳐야 함</small></td>
+          <td>강함</td>
+          <td>낮음 <small>(별도 1장)</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pick">
+    <h3>추천: B를 메인으로, A를 로그인 뒤 기본 화면으로</h3>
+    <p>계획서가 위시 추천을 차별 포인트로 못박은 이상 첫 화면이 올클과 똑같은 시간표 보드면 심사에서 축소판으로 읽힙니다. 반대로 매번 위시부터 지나가게 하면 재방문자가 번거로워집니다. 둘을 상태로 나누면 화면 하나만 더 만들면 됩니다.</p>
+    <ol>
+      <li><strong>비로그인 / 담은 과목 0</strong> → 시안 B. 위시 그리드가 히어로.</li>
+      <li><strong>담은 과목 1개 이상</strong> → 시안 A. 보드가 히어로, 위시는 오른쪽 패널의 한 탭.</li>
+      <li><strong>시안 C</strong>는 Phase 2에서 여석·핀 알림이 들어올 때 꺼냅니다. 지금 만들면 채울 내용이 없습니다.</li>
+      <li><strong>시안 D</strong>는 11월 발표 주에 정적 1장으로. 지금 만들 필요 없습니다.</li>
+    </ol>
+  </div>
+
+  <div class="pick alt">
+    <h3>킥오프에서 닫혀야 시안이 확정됩니다</h3>
+    <ol>
+      <li><strong>제품명</strong> — 지금은 워드마크 자리만 비워 뒀습니다. 로고가 들어가면 상단 바 높이가 바뀝니다.</li>
+      <li><strong>교시 체계</strong> — 그리드 행 개수가 여기서 나옵니다. 1–7교시로 그렸지만 학사 교시표를 따라야 합니다.</li>
+      <li><strong>위시 매칭 A/B</strong> — 정책 A로 가면 시안 B의 추천 개수가 확 줄어서, 리스트보다 “조건 완화” 안내가 더 중요해집니다.</li>
+      <li><strong>프론트 스택</strong> — 이 그리드는 CSS Grid 한 덩어리라 Next.js면 그대로 옮겨집니다. Flutter Web이면 다시 그려야 합니다.</li>
+    </ol>
+  </div>
+</section>
+
+</div>

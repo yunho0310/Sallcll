@@ -1,0 +1,247 @@
+/* toss_design.md sections 2–9. Toss Product Sans → Pretendard. */
+:root {
+  --bg: #ffffff;
+  --subtle: #f9fafb;
+  --grey: #f2f4f6;
+  --text: #191f28;
+  --text-2: #4e5968;
+  --text-3: #8b95a1;
+  --line: #e5e8eb;
+  --blue: #3182f6;
+  --blue-hover: #1b64da;
+  --on-blue: #ffffff;
+  --ok: #00c471;
+  --font: "Pretendard", "Apple SD Gothic Neo", -apple-system, sans-serif;
+  --display: 32px;
+  --title: 24px;
+  --heading: 19px;
+  --body: 15px;
+  --caption: 13px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-card: 16px;
+  --r-btn: 14px;
+  --touch: 52px;
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s7: 32px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--body);
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.note {
+  margin: 0;
+  padding: var(--s3) var(--s6);
+  background: var(--grey);
+  color: var(--text-3);
+  font-size: var(--caption);
+  line-height: 1.5;
+}
+
+.note strong { color: var(--text-2); font-weight: 600; }
+
+.shell {
+  max-width: 428px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--s6);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  height: var(--touch);
+  margin-top: var(--s2);
+}
+
+.wordmark {
+  font-size: var(--heading);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+.hero {
+  padding-top: var(--s7);
+  padding-bottom: var(--s6);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: var(--display);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+}
+
+.hero p {
+  margin: var(--s4) 0 0;
+  color: var(--text-2);
+}
+
+.login {
+  background: var(--grey);
+  border-radius: var(--r-card);
+  padding: var(--s6);
+}
+
+.login h2 {
+  margin: 0 0 var(--s5);
+  font-size: var(--title);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.field {
+  display: block;
+  margin-bottom: var(--s4);
+}
+
+.field span {
+  display: block;
+  margin-bottom: var(--s2);
+  font-size: var(--caption);
+  color: var(--text-3);
+}
+
+.field input {
+  display: block;
+  width: 100%;
+  height: var(--touch);
+  border: 0;
+  border-radius: var(--r-md);
+  background: var(--bg);
+  color: var(--text);
+  padding: 0 var(--s4);
+}
+
+.field input::placeholder { color: var(--text-3); }
+
+.field input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--blue);
+}
+
+.primary {
+  display: block;
+  width: 100%;
+  height: var(--touch);
+  margin-top: var(--s2);
+  border: 0;
+  border-radius: var(--r-btn);
+  background: var(--blue);
+  color: var(--on-blue);
+  font-size: var(--body);
+  font-weight: 700;
+}
+
+.primary:hover,
+.primary:focus-visible { background: var(--blue-hover); }
+
+.primary:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+.login-alt {
+  margin: var(--s4) 0 0;
+  text-align: center;
+  font-size: var(--caption);
+  color: var(--text-3);
+}
+
+.login-alt a {
+  color: var(--text-2);
+  font-weight: 600;
+}
+
+.skip {
+  display: block;
+  margin: var(--s5) 0 0;
+  text-align: center;
+  font-size: var(--caption);
+  color: var(--text-3);
+}
+
+.features {
+  margin-top: var(--s7);
+  padding-top: var(--s7);
+  border-top: 1px solid var(--line);
+}
+
+.features > h2 {
+  margin: 0 0 var(--s2);
+  font-size: var(--title);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.features > p {
+  margin: 0 0 var(--s5);
+  color: var(--text-2);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  min-height: var(--touch);
+  padding: var(--s5) 0;
+  border-top: 1px solid var(--line);
+}
+
+.row:last-child { border-bottom: 1px solid var(--line); }
+
+.row h3 {
+  margin: 0;
+  font-size: var(--heading);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.row p {
+  margin: var(--s1) 0 0;
+  font-size: var(--caption);
+  color: var(--text-2);
+}
+
+.row b {
+  margin-left: auto;
+  flex: none;
+  color: var(--text-3);
+  font-size: var(--caption);
+  font-weight: 400;
+}
+
+.legal {
+  margin: 0;
+  padding: var(--s6) 0 var(--s7);
+  font-size: var(--caption);
+  color: var(--text-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

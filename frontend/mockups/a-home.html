@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>목업 A — 올클형 홈</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="./mock.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="./index.html"><i></i> Sallcll</a>
+    <a class="on" href="./a-home.html">홈</a>
+    <a href="./b-workbench.html">시간표</a>
+    <a href="./c-wish.html">위시 추천</a>
+    <div class="right">
+      <span class="chip">2026-2 · 서경대</span>
+      <button class="btn btn-g" type="button">로그인</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <p class="kicker">수강신청 전, 시간표부터</p>
+    <h1>빈 시간에 맞는 강의를 먼저 찾으세요</h1>
+    <p class="sub">올클처럼 캘린더로 보고, 칸을 고르면 그 시간에 열리는 과목이 붙습니다.</p>
+
+    <div class="stats">
+      <div class="stat"><b>15학점</b><span>이번 학기 초안</span></div>
+      <div class="stat"><b>4과목</b><span>담긴 강의</span></div>
+      <div class="stat"><b>화 12–15</b><span>비어 있는 위시</span></div>
+    </div>
+
+    <div class="card">
+      <div class="cal" style="grid-template-rows: 40px repeat(6, 52px)">
+        <div class="h"></div>
+        <div class="h">월</div><div class="h">화</div><div class="h">수</div><div class="h">목</div><div class="h">금</div>
+        <div class="t">9</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="t">10</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="t">11</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="t">12</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="t">13</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="t">14</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+        <div class="block sky" style="grid-column:2;grid-row:2/4"><b></b><div class="txt"><strong>자료구조및실습</strong><span>이지영 · 417</span></div></div>
+        <div class="block rose" style="grid-column:3;grid-row:3/5"><b></b><div class="txt"><strong>자바프로그래밍</strong><span>유석원 · 620</span></div></div>
+        <div class="block em" style="grid-column:4;grid-row:2/4"><b></b><div class="txt"><strong>웹서버컴퓨팅</strong><span>이지영</span></div></div>
+        <div class="block amber" style="grid-column:5;grid-row:4/6"><b></b><div class="txt"><strong>소프트웨어실습1</strong><span>유석원</span></div></div>
+        <div class="block vio" style="grid-column:6;grid-row:2/3"><b></b><div class="txt"><strong>캡스톤설계1</strong><span>김선희</span></div></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

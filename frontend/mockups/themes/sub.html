@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>기능 화면 · 서브</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="./tokens.css" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg, #f1f4f2);
+      color: var(--text, #141a17);
+      font-family: var(--font, Pretendard, sans-serif);
+    }
+    .box {
+      max-width: 520px;
+      margin: 12vh auto;
+      padding: 28px 24px;
+      background: var(--surface, #fff);
+      border: 1px solid var(--border, #dbe3de);
+      border-radius: var(--radius-card, 12px);
+    }
+    .kicker {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-3, #8a958e);
+      margin: 0 0 8px;
+    }
+    h1 { margin: 0; font-size: 22px; }
+    p { color: var(--text-2, #59645e); line-height: 1.5; }
+    a { color: var(--link, #0068c3); }
+  </style>
+</head>
+<body>
+  <main class="box">
+    <p class="kicker" id="kicker">서브 페이지</p>
+    <h1 id="title">기능 화면</h1>
+    <p>메인은 소개와 로그인만 두고, 실제 도구는 여기서부터입니다. 이 페이지는 자리만 표시합니다. 시간표 그리드 시안은 메인에서 뺐습니다.</p>
+    <p><a id="back" href="./index.html">메인 시안으로 돌아가기</a></p>
+  </main>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const theme = q.get("theme") || "naver";
+    document.body.setAttribute("data-theme", theme);
+    const map = {
+      wish: ["위시 추천", "빈 교시를 고르면 강의가 붙는 화면"],
+      table: ["내 시간표", "담기 · 충돌 검사 보드"],
+      search: ["과목 탐색", "이름 · 교수 · 학점 검색"],
+      tips: ["선배 요령", "과목당 짧은 메모"],
+      join: ["회원가입", "이메일 가입"]
+    };
+    const key = (location.hash || "#wish").slice(1);
+    const pair = map[key] || ["기능 화면", "메인 카드에서 들어옴"];
+    document.getElementById("kicker").textContent = theme + " · 서브";
+    document.getElementById("title").textContent = pair[0];
+    document.getElementById("back").setAttribute("href", "./index.html#" + theme);
+  </script>
+</body>
+</html>

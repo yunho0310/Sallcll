@@ -1,0 +1,45 @@
+/* Naver tokens from naver_design.md sections 2, 3, 5, 6, 9. File values only. */
+:root {
+  --bg-base: #ffffff;
+  --bg-subtle: #f5f6f7;
+  --bg-surface: #ffffff;
+
+  --text-primary: #222222;
+  --text-secondary: #767676;
+  --text-tertiary: #a7a7a7;
+
+  --accent: #03c75a;
+  --accent-hover: #02b350;
+  --accent-text: #ffffff;
+
+  --link: #0068c3;
+  --danger: #f03e3e;
+
+  --border: #eaeaea;
+  --border-strong: #dadada;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+
+  --font: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", -apple-system, sans-serif;
+  --title-size: 20px;
+  --section-size: 16px;
+  --body-size: 14px;
+  --caption-size: 12px;
+  --leading-title: 1.35;
+  --leading-section: 1.4;
+  --leading-body: 1.5;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+
+  --radius-sm: 4px;
+  --radius-button: 6px;
+  --radius-base: 8px;
+  --radius-lg: 12px;
+
+  --touch: 44px;
+}
