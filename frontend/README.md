@@ -17,5 +17,5 @@
 
 - 목록: [`mockups/themes/index.html`](./mockups/themes/index.html)
 - 설명: [`mockups/README.md`](./mockups/README.md)
-- 위시 클릭 데모: [`demo/index.html`](./demo/index.html)
+- 탐색 필터 데모: [`demo/index.html`](./demo/index.html)
 

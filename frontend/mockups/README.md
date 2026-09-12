@@ -26,4 +26,4 @@ start frontend/mockups/themes/index.html
 | [cal.html](./themes/cal.html) | Cal.com |
 | [kakao.html](./themes/kakao.html) | 카카오톡 |
 
-클릭 가능한 위시 그리드 데모는 [`../demo/index.html`](../demo/index.html) 입니다. 시안 투표용이 아닙니다.
+탐색 필터 데모는 [`../demo/index.html`](../demo/index.html) 입니다. 시안 투표용이 아닙니다.
