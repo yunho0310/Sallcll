@@ -15,7 +15,7 @@
 
 스캐폴드 전 정적 HTML입니다. 브라우저에서 엽니다.
 
-- 목록: [`mockups/themes/index.html`](./mockups/themes/index.html)
+- 본 시안 홈: [`mockups/home.html`](./mockups/home.html)
+- 서브: `table` · `req` · `sim` · `help`
 - 설명: [`mockups/README.md`](./mockups/README.md)
-- 탐색 필터 데모: [`demo/index.html`](./demo/index.html)
 

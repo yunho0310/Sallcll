@@ -46,11 +46,13 @@ npm run dev:be
 
 프론트 스캐폴드 전에 보는 정적 HTML입니다. 클론한 뒤 이 파일을 브라우저로 엽니다.
 
-[`frontend/mockups/themes/index.html`](./frontend/mockups/themes/index.html)
+[`frontend/mockups/home.html`](./frontend/mockups/home.html)
 
 ```bash
-start frontend/mockups/themes/index.html
+start frontend/mockups/home.html
 ```
+
+진행은 [docs/진행상황.md](./docs/진행상황.md).
 
 ## 기여 방법
 
