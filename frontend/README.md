@@ -10,3 +10,12 @@
 4. 루트에서 `npm run dev:fe` / `npm run build:fe`로 실행
 
 백엔드는 [`../backend`](../backend)에 있으며, API는 기본적으로 `/api` 접두사를 사용합니다.
+
+## 메인 시안 (지금 열어볼 것)
+
+스캐폴드 전 정적 HTML입니다. 브라우저에서 엽니다.
+
+- 본 시안 홈: [`mockups/home.html`](./mockups/home.html)
+- 서브: `table` · `req` · `sim` · `help`
+- 설명: [`mockups/README.md`](./mockups/README.md)
+

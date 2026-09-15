@@ -4,7 +4,8 @@
 
 ## 소개
 
-(프로젝트 소개를 여기에 작성하세요.)
+서경대 **수강신청 도우미**. 시간표를 짜고, 졸업요건을 맞추고, 신청을 연습한다.
+빈 교시 강의 찾기는 탐색 도구일 뿐 제품의 이유가 아니다. 자세한 범위는 [docs/계획서.md](./docs/계획서.md).
 
 ## 스택
 
@@ -40,6 +41,18 @@ npm run dev:be
 - `develop`: 개발 통합 브랜치
 - `feature/{기능명}`: 기능 개발 브랜치
 - `fix/{버그명}`: 버그 수정 브랜치
+
+## 메인 시안
+
+프론트 스캐폴드 전에 보는 정적 HTML입니다. 클론한 뒤 이 파일을 브라우저로 엽니다.
+
+[`frontend/mockups/home.html`](./frontend/mockups/home.html)
+
+```bash
+start frontend/mockups/home.html
+```
+
+진행은 [docs/진행상황.md](./docs/진행상황.md).
 
 ## 기여 방법
 

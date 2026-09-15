@@ -51,7 +51,8 @@ Sallcll/
 │   ├── package.json
 │   ├── tsconfig.json / tsconfig.build.json
 │   └── vitest.config.ts / vitest.config.e2e.ts
-├── frontend/                        # 프런트엔드 (스캐폴딩 예정, 현재는 뼈대만 존재)
+├── frontend/
+│   ├── mockups/                    # 본 시안 정적 HTML (홈·서브 4장)
 │   ├── package.json
 │   └── README.md
 ├── .gitignore

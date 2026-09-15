@@ -1,0 +1,81 @@
+/* ================================================
+   Sallcll blend — light only
+   Linear form (light neutrals) × Cal glance type × Toss adaptive
+   Accent: naver_design.md #03C75A (one hue)
+   ================================================
+   Linear: layout (copy | login), Inter labels, light bg #f7f8f8,
+           white cards, border #d0d6e0, radius 6px on chrome
+   Cal:    Cal Sans 64/48 glance, 80px section gap, ring shadow
+   Toss:   Pretendard body, 52px touch, #f2f4f6 fields, 900px stack
+   Naver:  green CTA only
+   ================================================ */
+:root {
+  --bg: #f7f8f8;
+  --subtle: #f5f6f7;
+  --grey: #f2f4f6;
+  --card: #ffffff;
+  --text: #191f28;
+  --ink: #242424;
+  --mid: #111111;
+  --text-2: #4e5968;
+  --text-3: #8b95a1;
+  --line: #d0d6e0;
+  --line-soft: #e5e8eb;
+  --green: #03c75a;
+  --green-hover: #02b350;
+  --on-green: #ffffff;
+  --shadow: rgba(19, 19, 22, 0.7) 0px 1px 5px -4px, rgba(34, 42, 53, 0.08) 0px 0px 0px 1px, rgba(34, 42, 53, 0.05) 0px 4px 8px 0px;
+  --font-display: "Cal Sans", "Inter", "Pretendard", sans-serif;
+  --font-body: "Pretendard", "Apple SD Gothic Neo", -apple-system, sans-serif;
+  --font-ui: "Inter", "Pretendard", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --touch: 52px;
+  --r: 8px;
+  --r-btn: 8px;
+  --r-card: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.note {
+  margin: 0;
+  padding: 12px 24px;
+  background: var(--subtle);
+  color: var(--text-3);
+  font-size: 13px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.note strong { color: var(--text-2); font-weight: 600; }
+.note a { color: var(--green); font-weight: 600; }
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch);
+  border: 0;
+  border-radius: var(--r-btn);
+  background: var(--green);
+  color: var(--on-green);
+  font-weight: 600;
+  padding: 0 16px;
+}
+.primary:hover { background: var(--green-hover); }
+.primary:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

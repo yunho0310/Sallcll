@@ -1,0 +1,124 @@
+/* C: Toss phone column → desktop Linear split + Cal type. Toss radius 14/16. */
+:root { --r-btn: 14px; --r-card: 16px; }
+
+.shell {
+  max-width: 428px;
+  margin: 0 auto;
+  padding: 0 20px 48px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  height: var(--touch);
+}
+.nav .brand {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+}
+.nav .push { margin-left: auto; font-size: 13px; color: var(--text-2); }
+
+.hero { padding: 32px 0 24px; }
+.hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.hero .lead { margin: 16px 0 0; color: var(--text-2); }
+
+.login {
+  background: var(--grey);
+  border-radius: var(--r-card);
+  padding: 24px;
+  box-shadow: none;
+}
+.login h2 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: var(--font-body);
+}
+.login label {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+.login label + label { margin-top: 12px; }
+.login input {
+  width: 100%;
+  height: var(--touch);
+  border: 0;
+  border-radius: 12px;
+  background: var(--card);
+  padding: 0 16px;
+}
+.login input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--green); }
+.login .primary { width: 100%; margin-top: 8px; font-weight: 700; }
+.login p { margin: 16px 0 0; text-align: center; font-size: 13px; color: var(--text-3); }
+.login p a { font-weight: 600; color: var(--text-2); }
+
+.list { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line-soft); }
+.list h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.list > .hint { margin: 0 0 16px; color: var(--text-2); }
+.list a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: var(--touch);
+  padding: 20px 0;
+  border-top: 1px solid var(--line-soft);
+}
+.list a:last-child { border-bottom: 1px solid var(--line-soft); }
+.list .k { display: none; }
+.list h3 { margin: 0; font-size: 19px; font-weight: 600; }
+.list p { margin: 4px 0 0; font-size: 13px; color: var(--text-2); }
+.list b { margin-left: auto; font-size: 13px; font-weight: 400; color: var(--text-3); }
+
+@media (min-width: 900px) {
+  .shell {
+    max-width: 1040px;
+    padding: 0 24px 80px;
+  }
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) 320px;
+    gap: 48px;
+    padding: 72px 0 40px;
+    align-items: start;
+  }
+  .hero h1 {
+    font-size: 56px;
+    line-height: 1.1;
+  }
+  .hero .lead { font-size: 16px; max-width: 34em; }
+  .login {
+    background: var(--card);
+    box-shadow: var(--shadow);
+  }
+  .login h2 { font-family: var(--font-display); font-weight: 600; }
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+    margin-top: 48px;
+    padding-top: 40px;
+  }
+  .list h2, .list > .hint { grid-column: 1 / -1; }
+  .list a { border-bottom: 1px solid var(--line-soft); }
+  .list .k {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--green);
+    min-width: 64px;
+  }
+}
