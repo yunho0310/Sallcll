@@ -32,3 +32,6 @@ out/
 # Misc
 *.tmp
 .cache/
+
+# Local-only Claude Code setup (not shared with the team)
+.claude/
